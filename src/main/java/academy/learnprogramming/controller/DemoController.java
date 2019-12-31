@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Slf4j
@@ -27,10 +28,10 @@ public class DemoController {
         return "Hello!";
     }
 
-    // http://localhost:8080/To-Do-List-Spring-MVC/welcome
+    // http://localhost:8080/To-Do-List-Spring-MVC/welcome?user=Rafael
     @GetMapping("welcome")
-    public String welcome(Model model){
-        model.addAttribute("helloMessage", demoService.getHelloMessage("Rafael"));
+    public String welcome(@RequestParam String user, Model model){
+        model.addAttribute("helloMessage", demoService.getHelloMessage(user));
         log.info("Model = {}", model);
         return "welcome";
     }
