@@ -30,8 +30,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic registration =
                 servletContext.addServlet(DISPATCHER_SERVLET_NAME, dispatcherServlet);
 
-//        registration.setLoadOnStartup(1);
-//        registration.addMapping("/");
+        registration.setLoadOnStartup(1);
+        registration.addMapping("/");
     }
 
 }
