@@ -2,4 +2,6 @@
 /Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/service/DemoServiceImpl.java
 /Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/config/WebAppInitializer.java
 /Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/config/WebConfig.java
+/Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/model/ToDoItem.java
+/Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/model/ToDoData.java
 /Users/rafaelbrandao/Documents/Projects/To-Do-List-Spring-MVC/src/main/java/academy/learnprogramming/service/DemoService.java
