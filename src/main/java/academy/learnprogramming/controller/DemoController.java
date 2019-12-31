@@ -13,4 +13,10 @@ public class DemoController {
     public String hello(){
         return "Hello!";
     }
+
+    // http://localhost:8080/To-Do-List-Spring-MVC/welcome
+    @GetMapping("welcome")
+    public String welcome(){
+        return "welcome";
+    }
 }
