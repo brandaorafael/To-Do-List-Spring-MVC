@@ -1,10 +1,12 @@
 academy/learnprogramming/util/Mappings.class
-academy/learnprogramming/service/DemoServiceImpl.class
-academy/learnprogramming/model/ToDoItem.class
 academy/learnprogramming/controller/DemoController.class
 academy/learnprogramming/config/WebConfig.class
 academy/learnprogramming/config/WebAppInitializer.class
 academy/learnprogramming/model/ToDoData.class
+academy/learnprogramming/service/DemoServiceImpl.class
+academy/learnprogramming/service/ToDoItemServiceImpl.class
+academy/learnprogramming/model/ToDoItem.class
 academy/learnprogramming/controller/ToDoItemController.class
 academy/learnprogramming/util/ViewNames.class
 academy/learnprogramming/service/DemoService.class
+academy/learnprogramming/service/ToDoItemService.class
