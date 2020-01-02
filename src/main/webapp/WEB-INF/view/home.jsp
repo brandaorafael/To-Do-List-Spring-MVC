@@ -7,7 +7,7 @@
 <body>
     <div align="center">
         <c:url var="itemsLink" value="${Mappings.ITEMS}" />
-        <h2><a ref="${itemsLink}">Show ToDo Items</a></h2>
+        <h2><a href="${itemsLink}">Show ToDo Items</a></h2>
     </div>
 </body>
 </html>
