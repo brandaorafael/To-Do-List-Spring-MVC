@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="academy.learnprogramming.util.Mappings"%>
+<%@ page import="academy.learnprogramming.util.AttributeNames"%>
 
 <html>
 <head>
@@ -13,12 +14,17 @@
             <caption><h2>ToDo Items</h2></caption>
             <tr>
                 <th>Title</th>
-                <th>DeadLine</th>
+                <th>Deadline</th>
+                <th>Delete</th>
             </tr>
             <c:forEach var="item" items="${toDoData.items}">
+                <c:url var="deleteUrl" value="${Mappings.DELETE_ITEM}">
+                    <c:param name="${AttributeNames.TODO_ID}" value="${item.id}"/>
+                </c:url>
                 <tr>
                     <td><c:out value="${item.title}"/></td>
                     <td><c:out value="${item.deadline}"/></td>
+                    <td><a href="${deleteUrl}">Delete</a></td>
                 </tr>
             </c:forEach>
         </table>

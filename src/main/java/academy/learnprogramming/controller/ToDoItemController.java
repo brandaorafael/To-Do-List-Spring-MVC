@@ -51,4 +51,11 @@ public class ToDoItemController {
         toDoItemService.addItem(toDoItem);
         return "redirect:/" + Mappings.ITEMS;
     }
+
+    @GetMapping(Mappings.DELETE_ITEM)
+    public String deleteItem(@ModelAttribute(AttributeNames.TODO_ID) int id){
+        log.info("Deleting item with id = {}", id);
+        toDoItemService.removeItem(id);
+        return "redirect:/" + Mappings.ITEMS;
+    }
 }
