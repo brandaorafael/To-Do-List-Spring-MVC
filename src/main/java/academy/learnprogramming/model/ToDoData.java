@@ -2,6 +2,7 @@ package academy.learnprogramming.model;
 
 import lombok.NonNull;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,6 +13,12 @@ public class ToDoData {
     private static int idValue = 1;
 
     private final List<ToDoItem> items = new ArrayList<>();
+
+    public ToDoData() {
+        addItem(new ToDoItem("First", "First Details", LocalDate.now()));
+        addItem(new ToDoItem("Second", "Second Details", LocalDate.now()));
+        addItem(new ToDoItem("Third", "Third Details", LocalDate.now()));
+    }
 
     public List<ToDoItem> getItems(){
         return Collections.unmodifiableList(items);
