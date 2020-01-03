@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
@@ -38,22 +39,30 @@ public class ToDoItemController {
         return ViewNames.ITEMS_LIST;
     }
 
-    @GetMapping(Mappings.ADD_ITEM)
-    public String addEditItem(Model model){
-        ToDoItem toDoItem = new ToDoItem("", "", LocalDate.now());
+    @GetMapping(value = {Mappings.ADD_ITEM, Mappings.EDIT_ITEM})
+    public String addEditItem(@RequestParam(value = AttributeNames.TODO_ID, required = false, defaultValue = "-1") int id, Model model){
+        ToDoItem toDoItem = toDoItemService.getItem(id);
+        if(toDoItem == null){
+            toDoItem = new ToDoItem("", "", LocalDate.now());
+        }
+
         model.addAttribute(AttributeNames.TODO_ITEM, toDoItem);
         return ViewNames.ADD_ITEM;
     }
 
-    @PostMapping(Mappings.ADD_ITEM)
+    @PostMapping(value = {Mappings.ADD_ITEM, Mappings.EDIT_ITEM})
     public String processItem(@ModelAttribute(AttributeNames.TODO_ITEM) ToDoItem toDoItem){
         log.info("ToDoItem from form = {}", toDoItem);
-        toDoItemService.addItem(toDoItem);
+        if(toDoItem.getId() == 0){
+            toDoItemService.addItem(toDoItem);
+        } else {
+            toDoItemService.updateItem(toDoItem);
+        }
         return "redirect:/" + Mappings.ITEMS;
     }
 
     @GetMapping(Mappings.DELETE_ITEM)
-    public String deleteItem(@ModelAttribute(AttributeNames.TODO_ID) int id){
+    public String deleteItem(@RequestParam(AttributeNames.TODO_ID) int id){
         log.info("Deleting item with id = {}", id);
         toDoItemService.removeItem(id);
         return "redirect:/" + Mappings.ITEMS;
