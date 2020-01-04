@@ -35,8 +35,15 @@ public class ToDoItemController {
 
     // http://localhost:8080/To-Do-List-Spring-MVC/items
     @GetMapping(Mappings.ITEMS)
-    public String item(){
+    public String items(){
         return ViewNames.ITEMS_LIST;
+    }
+
+    @GetMapping(Mappings.ITEM)
+    public String viewItem(@RequestParam(value = AttributeNames.TODO_ID) int id, Model model){
+        ToDoItem toDoItem = toDoItemService.getItem(id);
+        model.addAttribute(AttributeNames.TODO_ITEM, toDoItem);
+        return ViewNames.ITEM;
     }
 
     @GetMapping(value = {Mappings.ADD_ITEM, Mappings.EDIT_ITEM})
